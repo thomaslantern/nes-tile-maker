@@ -235,11 +235,24 @@ class Tableau {
 
 // VARIABLES:
 
+// factors for what fraction of viewport 
+// NES "pixel"
+const pixelFactor = 40;
+// button
+const buttonFactor = 30;
+
 
 // Constants dealing with sizes of Pixels
 // and spaces in between them
-const pxWidth = 50;
-const tileGap = 5;
+function setPixelWidth(windowWidth)
+{
+	return windowWidth / pixelFactor;
+}
+
+
+let pxWidth = setPixelWidth(document.documentElement.clientWidth);
+// make tileGap about 10% of pxWidth
+let tileGap = 5;
 
 
 // Palette of all the NES colours, hex number is NES Hex code, second number hex code for html
@@ -329,8 +342,8 @@ yesHighlight, noToLayers, foregroundVisible, noGridlines);
 // to draw his tile
 const playerPalPixels = makeBlankTiles(4);
 const playerPal = 
-new Tableau("playerPal", playerPalPixels, 4, 1, 1, [0,0], tileGap,
-yesHighlight, noToLayers, foregroundVisible, noGridlines);
+new Tableau("playerPal", playerPalPixels, 4, 1, 1, [0,0], 0,
+yesHighlight, noToLayers, foregroundVisible, yesGridlines);
 
 
 // spriteName - input that contains the name
