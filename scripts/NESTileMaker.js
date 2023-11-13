@@ -240,7 +240,8 @@ class Tableau {
 const pixelFactor = 40;
 // button
 const buttonFactor = 30;
-
+// input
+const inputFactor = pixelFactor * 8;
 
 // Constants dealing with sizes of Pixels
 // and spaces in between them
@@ -252,7 +253,7 @@ function setPixelWidth(windowWidth)
 
 let pxWidth = setPixelWidth(document.documentElement.clientWidth);
 // make tileGap about 10% of pxWidth
-let tileGap = 5;
+let tileGap = pxWidth / 10;
 
 
 // Palette of all the NES colours, hex number is NES Hex code, second number hex code for html
@@ -355,7 +356,7 @@ spriteName.style.backgroundColor = "white";
 spriteName.placeholder = "(Enter Sprite Name Here)";
 spriteName.borderRadius = "3px";
 spriteName.addEventListener("change", updateCode);
-
+spriteName.style.width = inputFactor + "px";
 
 
 
