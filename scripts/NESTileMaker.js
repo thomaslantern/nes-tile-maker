@@ -36,8 +36,6 @@ class Tableau {
 		this.showForeground = showForeground;
 		
 		// Begin creating the activeTile for the Tableau:
-		// (I learned how to do this from: 
-		// https://stackoverflow.com/questions/55206823/how-to-create-a-valid-svg-element-with-javascript)
 		this.activeTile = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 		// Height and width are set to pxWidth + 1 because otherwise
 		// there are gaps between Pixels - we don't want that!
