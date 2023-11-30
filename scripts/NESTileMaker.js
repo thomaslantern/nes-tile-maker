@@ -35,7 +35,6 @@ class Tableau {
 		this.noLayers = noLayers;
 		this.showForeground = showForeground;
 		
-		// Begin creating the activeTile for the Tableau:
 		this.activeTile = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 		// Height and width are set to pxWidth + 1 because otherwise
 		// there are gaps between Pixels - we don't want that!
@@ -46,18 +45,12 @@ class Tableau {
 		this.activeTile.setAttribute("stroke-width", 5);
 		this.activeTile.setAttribute("id", id + "Highlight");
 		this.activeTile.setAttribute("class", "colour1");
-		// Set x and y relative to selected coordinates in
-		// activeTile multiplied by the width of the Pixel
-		// objects, and the gap between them
 		const activeX = activeTile[0] * (pxWidth + columnSpace);
 		const activeY = activeTile[1] * (pxWidth + columnSpace);
 		this.activeTile.setAttribute("x", activeX);
 		this.activeTile.setAttribute("y", activeY);
 		
-		// Give our highlighted tile a red outline
-		// if we want to see it
 		if (activeHighlight == true) {
-			// figure out x,y coordinate for activeTile
 			this.activeTile.setAttribute("stroke", "red");
 		}
 
@@ -73,10 +66,8 @@ class Tableau {
 		// crisscrosses in between all of the Pixels.
 		if (hasGridlines == true) {
 			
-			// make SVG for the gridlines
 			this.gridLines = document.createElementNS("http://www.w3.org/2000/svg", "path");
 
-			// Build the path for gridlines
 			const totalWidth = width * pxWidth + (columnSpace * (width - 1));
 			let path = "M0 0 L" + totalWidth + " 0" +
 								" L" + totalWidth + " " + totalWidth +
@@ -153,9 +144,8 @@ class Tableau {
 			let y = Math.floor(i / width);
 			let x = i % width;
 
-			// then multiply them out based on 
-			// pxWidth and columnSpace for
-			// true x and y values
+			
+			// get true x and y values
 			x = pxWidth * x +  columnSpace * x;
 			y = pxWidth * y +  columnSpace * y;
 
